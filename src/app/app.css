@@ -1,0 +1,60 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* APP LAYOUT */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.main-header {
+  background-color: #1a1a1f;
+  color: white;
+  padding: 16px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-header .logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1; /* duwt footer naar beneden */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* FOOTER */
+.main-footer {
+  background-color: #1a1a1f;
+  color: #868e96;
+  text-align: center;
+  padding: 16px 40px;
+  border-top: 1px solid #2b2b36;
+  font-size: 14px;
+}
+
+.main-footer p {
+  margin: 0;
+}

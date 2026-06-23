@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal, OnInit, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { setupFetchInterceptor } from './fetch-interceptor';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,12 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+
+export class App implements OnInit {
+  private router = inject(Router);
+
   protected readonly title = signal('Admin-memory');
+  ngOnInit() {
+    setupFetchInterceptor(this.router);
+  }
 }
