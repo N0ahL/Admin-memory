@@ -1,6 +1,32 @@
-<h1>Welkom Henk!</h1>
-<h2>Het totaal aantal spellen gespeeld op MindFuck is: {{ stats?.[0]?.aantal_spellen }}</h2>
-<h2>Alle gebruikers: {{ stats?.[1]?.aantal_spelers}}</h2>
-<h2>Populairste API op moment is: {{ stats?.[2]?.api}}</h2>
+<div class="admin-wrapper">
 
+  <div class="welcome-section">
+    <h1>Welkom terug, <span class="highlight">Henk!</span></h1>
+    <p>Hieronder de beschikbare data over MindFuck</p>
+  </div>
 
+  <div class="centered-menu">
+
+    <button class="menu-card" routerLink="/admin/games">
+      <div class="text-group">
+        <h3>Spellen</h3>
+        <p>Totaal aantal gespeelde spellen op MindFuck</p>
+      </div>
+    </button>
+
+    <button class="menu-card" routerLink="/admin/players">
+      <div class="text-group">
+        <h3>Spelers</h3>
+        <p>Overzicht van alle geregistreerde spelers</p>
+      </div>
+    </button>
+
+    <button class="menu-card" routerLink="/admin/apis">
+      <div class="text-group">
+        <h3>API's</h3>
+        <p>Bekijk welke API momenteel het populairst is</p>
+      </div>
+    </button>
+
+  </div>
+</div>

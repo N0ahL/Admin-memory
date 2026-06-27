@@ -23,6 +23,9 @@ export function setupFetchInterceptor(router: Router) {
     const response = await ogFetch(url, options);
 
     if (response.status === 401) {
+      if (urlString.includes('/memory/login')) {
+        return response;
+      }
       alert('Inlog sessie verlopen!');
       localStorage.removeItem('token');
       await router.navigate(['/login']);

@@ -1,0 +1,20 @@
+<button routerLink="/admin"> terug </button>
+
+<div class="chart-container">
+  <h2>Populaire API's</h2>
+
+  @if (isDataLoaded()) {
+    <div style="display: block; width: 100%; max-width: 600px; margin: 0 auto;">
+      <canvas
+        baseChart
+        [data]="barChartData()"
+        [options]="barChartOptions"
+        [type]="barChartType">
+      </canvas>
+    </div>
+  } @else {
+    <div class="loading-box">
+      <p>API statistieken laden...</p>
+    </div>
+  }
+</div>

@@ -21,7 +21,7 @@ html, body {
 /* HEADER */
 .main-header {
   background-color: #1a1a1f;
-  color: white;
+  color: gold;
   padding: 16px 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
@@ -57,4 +57,19 @@ html, body {
 
 .main-footer p {
   margin: 0;
+}
+
+.btn-logout{
+  cursor: pointer;
+  padding: 3px 5px;
+  background-color: transparent;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+  border-radius: 6px;
+}
+
+.btn-logout:hover{
+  background-color: mediumpurple;
+  border-color: mediumpurple;
+  color: white;
 }

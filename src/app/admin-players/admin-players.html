@@ -1,0 +1,19 @@
+<button routerLink="/admin"> terug </button>
+
+<div class="players-container">
+  <h2>geregistreerde spelers</h2>
+  <ul class="players-list">
+    <li class="list-header">
+      <span class="header-title">Username</span>
+      <span class="header-title">Email</span>
+
+    </li>
+    @for (speler of spelersLijst(); track $index){
+      <li class="player-item">
+        <span class="player-name">{{ speler.username }}</span>
+        <span class="player-email">{{ speler.email }}</span>
+      </li>
+    }
+  </ul>
+</div>
+

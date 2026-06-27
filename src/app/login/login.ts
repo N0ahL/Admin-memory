@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
+import {updateLoginStatus} from '../app';
 
 @Component({
   selector: 'app-login',
@@ -21,26 +22,31 @@ export class Login {
        username: this.username,
        password: this.password
      }
-     const response = await fetch('http://localhost:8000/memory/login', {
-       method: "post",
-       headers: {'Content-type': 'application/json'},
-       body: JSON.stringify(logInData)
-     });
+     try {
+       const response = await fetch('http://localhost:8000/memory/login', {
+         method: "post",
+         headers: {'Content-type': 'application/json'},
+         body: JSON.stringify(logInData)
+       });
 
-     if(!response.ok){
-       alert('Verkeerde inloggegevens')
-     }
-
-     if(response.ok){
-       const data = await response.json();
-       if(this.username === 'Henk'){
-         localStorage.setItem('token', data.token)
-         await this.router.navigate(['/admin'])
-       } else {
-         alert(this.username + ' heeft geen admin rechten!')
+       if(!response.ok){
+         alert('Verkeerde inloggegevens')
        }
-     }
 
+       if(response.ok){
+         const data = await response.json();
+         if(this.username === 'Henk'){
+           localStorage.setItem('token', data.token)
+           updateLoginStatus();
+           await this.router.navigate(['/admin'])
+         } else {
+           alert(this.username + ' heeft geen admin rechten!')
+         }
+       }
+     }catch (error){
+       console.error('Login mislukt:', error);
+       alert('Kon geen verbinding maken met de server')
+     }
    }
 
 }

@@ -2,17 +2,24 @@
 
   <header class="main-header">
     <div class="logo">
-      <strong style="color: #00f2fe;">MindFuck</strong> Admin
+      <strong style="color: mediumpurple;">MindFuck</strong> Admin
     </div>
     <nav>
     </nav>
+    @if (isLoggedIn()){
+      <div class="header-actions" routerLink="/login">
+        <button class="btn-logout" (click)="onLogout()">
+          Uitloggen
+        </button>
+      </div>
+    }
   </header>
 
   <main class="main-content">
     <router-outlet></router-outlet>
   </main>
 
-  <footer class="main-footer">
+  <footer class="main-footer" >
     <p>&copy; 2026 MindFuck Memory Game. Alle rechten voorbehouden.</p>
   </footer>
 

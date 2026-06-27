@@ -1,0 +1,16 @@
+<button routerLink="/admin"> terug </button>
+
+<div class="chart-container">
+  <h2>Aantal spellen gespeeld</h2>
+
+  @if (isDataLoaded()) {
+    <canvas
+      baseChart
+      [data]="barChartData()"
+      [options]="barChartOptions"
+      [type]="barChartType">
+    </canvas>
+  } @else {
+    <p>Statistieken laden...</p>
+  }
+</div>
