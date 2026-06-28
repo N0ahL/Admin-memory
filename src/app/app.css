@@ -1,4 +1,3 @@
-/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -11,14 +10,12 @@ html, body {
   background-color: #f4f6f9;
 }
 
-/* APP LAYOUT */
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* HEADER */
 .main-header {
   background-color: #1a1a1f;
   color: gold;
@@ -36,16 +33,14 @@ html, body {
   letter-spacing: 0.5px;
 }
 
-/* MAIN CONTENT */
 .main-content {
-  flex: 1; /* duwt footer naar beneden */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
 }
 
-/* FOOTER */
 .main-footer {
   background-color: #1a1a1f;
   color: #868e96;

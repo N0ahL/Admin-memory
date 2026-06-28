@@ -9,3 +9,26 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f9;
 }
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f3f5;
+  color: #495057;
+  border: 1px solid #e3e6f0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+  margin-right: auto;
+}
+
+.back-button:hover {
+  background-color: #e9ecef;
+  color: mediumpurple;
+  border-color: mediumpurple;
+}

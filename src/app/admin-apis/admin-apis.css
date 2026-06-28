@@ -1,4 +1,3 @@
-/* --- Container voor de grafiek --- */
 .chart-container {
   background-color: #ffffff;
   border-radius: 16px;
@@ -15,45 +14,18 @@
 
 .chart-container h2 {
   color: #1a1d20;
-  font-size: 2rem; /* Iets groter gemaakt voor het bioscoopscherm-effect */
+  font-size: 2rem;
   font-weight: 600;
   margin-top: 24px;
   margin-bottom: 32px;
 }
 
-/* --- De Moderne Terugknop --- */
-button[routerLink="/admin"] {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #f1f3f5;
-  color: #495057;
-  border: 1px solid #e3e6f0;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-bottom: 24px;
-  float: left;
-}
-
-button[routerLink="/admin"]:hover {
-  background-color: #e9ecef;
-  color: mediumpurple;
-  border-color: mediumpurple;
-  transform: translateX(-2px);
-}
-
-/* Clearfix om de float netjes op te vangen */
 .chart-container::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* --- Canvas Styling (DE KRACHTIGSTE VERANDERING) --- */
 canvas {
   display: block;
   width: 100% !important;
