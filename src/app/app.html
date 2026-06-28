@@ -6,7 +6,7 @@
     </div>
     <nav>
     </nav>
-    @if (isLoggedIn()){
+    @if (authService.isLoggedIn()){
       <div class="header-actions" routerLink="/login">
         <button class="btn-logout" (click)="onLogout()">
           Uitloggen

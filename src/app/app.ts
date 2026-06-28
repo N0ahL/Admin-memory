@@ -1,7 +1,7 @@
-import { Component, signal, OnInit, inject } from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {Component, OnInit, inject, signal} from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { setupFetchInterceptor } from './fetch-interceptor';
-export let updateLoginStatus = () => {};
+import { Auth } from './services/auth';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +9,17 @@ export let updateLoginStatus = () => {};
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-
 export class App implements OnInit {
   private router = inject(Router);
-  public isLoggedIn = signal(false);
+  protected authService = inject(Auth);
 
   protected readonly title = signal('Admin-memory');
-  ngOnInit() {
-    setupFetchInterceptor(this.router);
 
-    updateLoginStatus = () => {
-      this.isLoggedIn.set(!!localStorage.getItem('token'));
-    };
-    updateLoginStatus();
+  ngOnInit() {
+    setupFetchInterceptor(this.router, this.authService);
   }
-  onLogout(){
-    localStorage.removeItem('token')
-    this.isLoggedIn.set(false);
+
+  onLogout() {
+    this.authService.logout();
   }
 }

@@ -1,52 +1,25 @@
 import { Component, inject } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
-import {updateLoginStatus} from '../app';
+import { FormsModule } from '@angular/forms';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-login',
-  imports: [
-    FormsModule
-  ],
+  imports: [FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
-  private router = inject(Router)
+  private authService = inject(Auth);
 
-   username = ''
-   password = ''
+  username = '';
+  password = '';
 
-  async onSubmit(){
-     const logInData ={
-       username: this.username,
-       password: this.password
-     }
-     try {
-       const response = await fetch('http://localhost:8000/memory/login', {
-         method: "post",
-         headers: {'Content-type': 'application/json'},
-         body: JSON.stringify(logInData)
-       });
-
-       if(!response.ok){
-         alert('Verkeerde inloggegevens')
-       }
-
-       if(response.ok){
-         const data = await response.json();
-         if(this.username === 'Henk'){
-           localStorage.setItem('token', data.token)
-           updateLoginStatus();
-           await this.router.navigate(['/admin'])
-         } else {
-           alert(this.username + ' heeft geen admin rechten!')
-         }
-       }
-     }catch (error){
-       console.error('Login mislukt:', error);
-       alert('Kon geen verbinding maken met de server')
-     }
-   }
-
+  async onSubmit() {
+    try {
+      await this.authService.login(this.username, this.password);
+    } catch (error: any) {
+      alert(error.message ?? 'Kon geen verbinding maken met de server');
+      console.error('Login mislukt:', error);
+    }
+  }
 }
