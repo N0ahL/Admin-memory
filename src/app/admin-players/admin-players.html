@@ -1,4 +1,4 @@
-<button routerLink="/admin"> terug </button>
+<button class="back-button" routerLink="/admin"> terug </button>
 
 <div class="players-container">
   <h2>geregistreerde spelers</h2>
@@ -6,14 +6,18 @@
     <li class="list-header">
       <span class="header-title">Username</span>
       <span class="header-title">Email</span>
-
     </li>
-    @for (speler of spelersLijst(); track $index){
-      <li class="player-item">
-        <span class="player-name">{{ speler.username }}</span>
-        <span class="player-email">{{ speler.email }}</span>
-      </li>
+    @if (isDataLoaded()){
+      @for (speler of spelersLijst(); track $index){
+        <li class="player-item">
+          <span class="player-name">{{ speler.username }}</span>
+          <span class="player-email">{{ speler.email }}</span>
+        </li>
+      }
+      }@else {
+      <p>Spelers laden...</p>
     }
+
   </ul>
 </div>
 

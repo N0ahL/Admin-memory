@@ -9,6 +9,8 @@ import {RouterLink} from '@angular/router';
 })
 export class AdminPlayers implements OnInit {
   public spelersLijst = signal<any[]>([]);
+  public isDataLoaded = signal(false);
+
   async ngOnInit() {
     const response = await fetch('http://localhost:8000/admin/players');
 
@@ -16,6 +18,7 @@ export class AdminPlayers implements OnInit {
       const data = await response.json();
       this.spelersLijst.set(data);
       console.log(data)
+      this.isDataLoaded.set(true);
     }
   }
 
